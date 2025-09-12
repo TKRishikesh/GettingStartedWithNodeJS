@@ -1,2 +1,3 @@
 npm install -g nodemon didn't result in any change to any project files
 
+npm install -- To install all packages from package.json - Didn't result in any src code change, might have modified the gitignored node_modules
