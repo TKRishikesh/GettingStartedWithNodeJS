@@ -28,7 +28,7 @@ app.get('/api/users/get/:uid',(req,res)=>{
 app.post('/api/users/add',(req,res)=>{
     const {name,email} = req.body;
     const newUser = {
-        id : users.length+1,
+        id : users[users.length-1]+1,
         name,
         email
     };
@@ -57,3 +57,97 @@ app.delete('/api/users/delete/:id',(req,res)=>{
 });
 
 app.listen(port,()=>{console.log("Server running on port "+ port)});
+
+
+
+//gRPC Server Impl
+
+const gRPC = require('@grpc/grpc-js');
+const protoLoader = require('@grpc/proto-loader');
+
+const packageDef = protoLoader.loadSync("users.proto");
+const grpcObject = gRPC.loadPackageDefinition(packageDef);
+
+
+const userPackage = grpcObject.userPackage;
+const grpcServer = new gRPC.Server();
+
+grpcServer.addService(userPackage.User.service,{
+    "ListUsers" : listUsers,
+    "GetUser" : getUser,
+    "CreateUser" : createUser,
+    "EditUser" : editUser,
+    "DeleteUser" : deleteUser
+});
+
+function listUsers(call,callback){
+    callback(null,{users});
+}
+
+function getUser(call,callback)
+{
+    const user = users.find(u=>u.id == call.request.id);
+    if(user)
+        callback(null,user);
+    else
+        callback({
+            code:gRPC.status.NOT_FOUND,
+            details:"User Not Found"});
+}
+
+function createUser(call,callback)
+{
+    const name = call.request.name;
+    const email = call.request.email;
+    const user = {
+        id:users[users.length-1].id+1,
+        name : name,
+        email : email,
+    }
+    users.push(user);
+    callback(null,user);
+}
+
+function editUser(call,callback)
+{
+    const id = call.request.id;
+    const index = users.findIndex(u=>u.id == id);
+    if(index>0)
+    {
+        users[index] = {
+                    id : id,
+                    name : call.request.name,
+                    email: call.request.email
+                };
+        callback(null,users[index]);
+    }
+    else
+        callback({
+            code:gRPC.status.INVALID_ARGUMENT,
+            details:"Given ID not present",
+        })
+}
+
+function deleteUser(call,callback)
+{
+    const id = call.request.id;
+    const index = users.findIndex(u=>u.id == id);
+    if(index>=0)
+    {
+        users = users.filter(u=>u.id!=id);
+        callback(null,null);
+    }
+    else
+    {
+        callback({
+            code:gRPC.status.INVALID_ARGUMENT,
+            details:"Given ID not present",
+        })
+    }
+}
+
+grpcServer.bindAsync("127.0.0.1:50051",gRPC.ServerCredentials.createInsecure(),
+(error,port) => {
+    grpcServer.start();
+    console.log('grpc server running on port 500051');
+});
