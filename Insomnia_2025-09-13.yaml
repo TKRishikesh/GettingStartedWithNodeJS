@@ -1,0 +1,314 @@
+type: collection.insomnia.rest/5.0
+name: Scratch Pad
+meta:
+  id: wrk_scratchpad
+  created: 1757694975782
+  modified: 1757694975782
+  description: ""
+collection:
+  - name: NodeJs Server
+    meta:
+      id: fld_9813670bc569469ba602b88a6ae66de3
+      created: 1757695024610
+      modified: 1757740132127
+      sortKey: -1757695024610
+      description: ""
+    children:
+      - name: gRPC
+        meta:
+          id: fld_420c5517e607445aab749f5111297227
+          created: 1757742329681
+          modified: 1757742540145
+          sortKey: -1757742329681
+          description: ""
+        children:
+          - url: localhost:50051
+            name: Get User
+            meta:
+              id: greq_457847fd001841888650ee13aadcbfe8
+              created: 1757742333701
+              modified: 1757742793181
+              isPrivate: false
+              sortKey: -1757742333701
+              description: ""
+            body:
+              text: |-
+                {
+                	"id":1
+                }
+            metadata:
+              - id: pair_4ddccedcf7b8444d8306c0de4d25c4ba
+                name: ""
+                value: ""
+                description: ""
+                disabled: true
+            protoFileId: pf_0901f5cbff2b4fdfb7b7435c7ad383be
+            protoMethodName: /userPackage.User/GetUser
+            reflectionApi:
+              enabled: false
+              url: https://buf.build
+              apiKey: ""
+              module: buf.build/connectrpc/eliza
+          - url: localhost:50051
+            name: List Users
+            meta:
+              id: greq_5dcf56bd6f044e309b3ca19698d163ad
+              created: 1757742467300
+              modified: 1757743013503
+              isPrivate: false
+              sortKey: -1757742333651
+              description: ""
+            body:
+              text: "{}"
+            metadata:
+              - id: pair_4ddccedcf7b8444d8306c0de4d25c4ba
+                name: ""
+                value: ""
+                description: ""
+                disabled: true
+            protoFileId: pf_0901f5cbff2b4fdfb7b7435c7ad383be
+            protoMethodName: /userPackage.User/ListUsers
+            reflectionApi:
+              enabled: false
+              url: https://buf.build
+              apiKey: ""
+              module: buf.build/connectrpc/eliza
+          - url: localhost:50051
+            name: Create User
+            meta:
+              id: greq_0bd5f771695249ffaf76540cb91fd90c
+              created: 1757742548987
+              modified: 1757742579125
+              isPrivate: false
+              sortKey: -1757742333676
+              description: ""
+            body:
+              text: |-
+                {
+                	"name": "Rishikesh",
+                	"email": "rishikesh@email.com"
+                }
+            metadata:
+              - id: pair_4ddccedcf7b8444d8306c0de4d25c4ba
+                name: ""
+                value: ""
+                description: ""
+                disabled: true
+            protoFileId: pf_0901f5cbff2b4fdfb7b7435c7ad383be
+            protoMethodName: /userPackage.User/CreateUser
+            reflectionApi:
+              enabled: false
+              url: https://buf.build
+              apiKey: ""
+              module: buf.build/connectrpc/eliza
+          - url: localhost:50051
+            name: Edit User
+            meta:
+              id: greq_ec3528d2ee00421cbeefac2eb9a1ec9e
+              created: 1757742673947
+              modified: 1757742694353
+              isPrivate: false
+              sortKey: -1757742333663.5
+              description: ""
+            body:
+              text: |-
+                {
+                	"id" : 3,
+                	"name": "Rishikesh Kamalamoorthy",
+                	"email": "rishikesh Kamalamoorthy@email.com"
+                }
+            metadata:
+              - id: pair_4ddccedcf7b8444d8306c0de4d25c4ba
+                name: ""
+                value: ""
+                description: ""
+                disabled: true
+            protoFileId: pf_0901f5cbff2b4fdfb7b7435c7ad383be
+            protoMethodName: /userPackage.User/EditUser
+            reflectionApi:
+              enabled: false
+              url: https://buf.build
+              apiKey: ""
+              module: buf.build/connectrpc/eliza
+          - url: localhost:50051
+            name: Delete user
+            meta:
+              id: greq_3bf2e21aab3047f4956292a18c214634
+              created: 1757742725094
+              modified: 1757742733173
+              isPrivate: false
+              sortKey: -1757742333688.5
+              description: ""
+            body:
+              text: |-
+                {
+                	"id":1
+                }
+            metadata:
+              - id: pair_4ddccedcf7b8444d8306c0de4d25c4ba
+                name: ""
+                value: ""
+                description: ""
+                disabled: true
+            protoFileId: pf_0901f5cbff2b4fdfb7b7435c7ad383be
+            protoMethodName: /userPackage.User/DeleteUser
+            reflectionApi:
+              enabled: false
+              url: https://buf.build
+              apiKey: ""
+              module: buf.build/connectrpc/eliza
+      - url: http://localhost:3001/api/users/list
+        name: Users List
+        meta:
+          id: req_c15671dd620840a8853cea56045819cc
+          created: 1757695032666
+          modified: 1757696791113
+          isPrivate: false
+          description: ""
+          sortKey: -1757695032666
+        method: GET
+        parameters:
+          - id: pair_1f2ad67ba24848b2a66d8f652a8154ff
+            name: ""
+            value: ""
+            description: ""
+            disabled: true
+        headers:
+          - name: User-Agent
+            value: insomnia/11.4.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3001/api/users/get/2
+        name: Get User
+        meta:
+          id: req_c8337eea5d174c38b4f1545b938a69f6
+          created: 1757696643908
+          modified: 1757697701507
+          isPrivate: false
+          description: ""
+          sortKey: -1757696643908
+        method: GET
+        parameters:
+          - id: pair_be80902e47e84199a30b38add7b36cb3
+            name: ""
+            value: ""
+            description: ""
+            disabled: true
+        headers:
+          - name: User-Agent
+            value: insomnia/11.4.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3001/api/users/add
+        name: New Request
+        meta:
+          id: req_6e70af501a4a4227aac3183b63510ebc
+          created: 1757696844781
+          modified: 1757696923849
+          isPrivate: false
+          description: ""
+          sortKey: -1757696844781
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"name": "Rishikesh",
+            	"email": "rishi@email.com"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.4.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3001/api/users/edit
+        name: New Request
+        meta:
+          id: req_3ac5862cda094d109d4a9428555b3c05
+          created: 1757697121070
+          modified: 1757697686317
+          isPrivate: false
+          description: ""
+          sortKey: -1757697121070
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"id":2,
+            	"name":"Rishikesh Kamalamoorthy",
+            	"email": "rishikesh.kamalamoorthy@email.com"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.4.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3001/api/users/delete/2
+        name: New Request
+        meta:
+          id: req_fb0a3ccb8d4e4dc2ba9157ae566a1e2b
+          created: 1757697393092
+          modified: 1757697576921
+          isPrivate: false
+          description: ""
+          sortKey: -1757697393092
+        method: DELETE
+        parameters:
+          - id: pair_6df2eaf0a104490bb77d3d3970fa519e
+            name: ""
+            value: ""
+            description: ""
+            disabled: true
+        headers:
+          - name: User-Agent
+            value: insomnia/11.4.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_99d30891da4bdcebc63947a8fc17f076de878684
+    created: 1757694988902
+    modified: 1757694988902
+environments:
+  name: Base Environment
+  meta:
+    id: env_99d30891da4bdcebc63947a8fc17f076de878684
+    created: 1757694988779
+    modified: 1757694988779
+    isPrivate: false
