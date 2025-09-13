@@ -1,0 +1,30 @@
+curl --request GET \
+  --url http://localhost:3001/api/users/list \
+  --header 'User-Agent: insomnia/11.4.0'
+
+  curl --request GET \
+  --url http://localhost:3001/api/users/get/2 \
+  --header 'User-Agent: insomnia/11.4.0'
+
+  curl --request POST \
+  --url http://localhost:3001/api/users/add \
+  --header 'Content-Type: application/json' \
+  --header 'User-Agent: insomnia/11.4.0' \
+  --data '{
+	"name": "Rishikesh",
+	"email": "rishi@email.com"
+}'
+
+curl --request PUT \
+  --url http://localhost:3001/api/users/edit \
+  --header 'Content-Type: application/json' \
+  --header 'User-Agent: insomnia/11.4.0' \
+  --data '{
+	"id":2,
+	"name":"Rishikesh Kamalamoorthy",
+	"email": "rishikesh.kamalamoorthy@email.com"
+}'
+
+curl --request DELETE \
+  --url http://localhost:3001/api/users/delete/2 \
+  --header 'User-Agent: insomnia/11.4.0'
